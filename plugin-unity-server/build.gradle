@@ -15,15 +15,14 @@
  */
 
 plugins {
-    id 'io.github.rodm.teamcity-server' version "1.5"
+    id 'teamcity.server-plugin'
 }
 
 teamcity {
-    version = teamcityVersion
-
     server {
+        archiveName = rootProject.name
         descriptor = project.file('teamcity-plugin.xml')
-        tokens = [Plugin_Version: project.version]
+        tokens = [Plugin_Version: rootProject.version]
     }
 }
 
@@ -36,15 +35,4 @@ dependencies {
     }
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     provided "org.jetbrains.teamcity.internal:server:$teamcityVersion"
-}
-
-serverPlugin.version = null
-
-compileKotlin {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
-
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
 }

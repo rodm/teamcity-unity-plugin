@@ -15,20 +15,19 @@
  */
 
 plugins {
-    id 'io.github.rodm.teamcity-agent' version "1.5"
-    id 'org.jetbrains.kotlin.plugin.serialization' version '1.7.20'
+    id 'teamcity.agent-plugin'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.7.21'
 }
 
 teamcity {
-    version = teamcityVersion
-
     agent {
+        archiveName = 'teamcity-unity-agent'
         descriptor = project.file('teamcity-plugin.xml')
-    }
 
-    files {
-        into('tools') {
-            from('tools/pe-product-version-detector/binaries/PeProductVersionDetector.exe')
+        files {
+            into('tools') {
+                from('tools/pe-product-version-detector/binaries/PeProductVersionDetector.exe')
+            }
         }
     }
 }
@@ -44,6 +43,3 @@ dependencies {
     testImplementation 'org.testng:testng:6.8'
     testImplementation 'org.jmock:jmock:2.12.0'
 }
-
-agentPlugin.version = null
-agentPlugin.baseName = 'teamcity-unity-agent'

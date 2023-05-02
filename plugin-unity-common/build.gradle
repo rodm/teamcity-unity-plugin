@@ -15,13 +15,9 @@
  */
 
 plugins{
-    id 'io.github.rodm.teamcity-common' version '1.5'
+    id 'teamcity.common-library'
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
-}
-
-teamcity {
-    version = teamcityVersion
 }

@@ -16,6 +16,8 @@
 
 rootProject.name='teamcity-unity-plugin'
 
+includeBuild 'build-logic'
+
 include 'csharp-parser'
 include 'plugin-unity-agent'
 include 'plugin-unity-common'

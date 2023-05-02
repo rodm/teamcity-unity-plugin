@@ -15,11 +15,7 @@
  */
 
 plugins {
-    id "org.jetbrains.kotlin.jvm" version "1.7.21"
-}
-
-repositories {
-    mavenCentral()
+    id 'teamcity.base'
 }
 
 ext {
@@ -32,21 +28,6 @@ ext {
 group = projectIds.group
 version = projectIds.version
 
-allprojects {
-    group = projectIds.group
-    version = projectIds.version
-}
-
-subprojects {
-    apply plugin: "kotlin"
-
-    repositories {
-        mavenCentral()
-    }
-
-    test.useTestNG()
-    jar.version = null
-
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+teamcity {
+    version = project.teamcityVersion
 }

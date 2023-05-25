@@ -1,5 +1,7 @@
 
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import java.text.SimpleDateFormat
+import java.util.Date
 
 plugins {
     id ("org.jetbrains.kotlin.jvm")
@@ -9,8 +11,12 @@ repositories {
     mavenCentral()
 }
 
-group = rootProject.group
-version = rootProject.version
+group = "teamcity-unity-plugin"
+
+val defaultVersion = "SNAPSHOT_${SimpleDateFormat("yyyyMMddHHmmss").format(Date())}"
+val versionNumber = project.findProperty("versionNumber") ?: ""
+val validVersion = Regex("\\d+(\\.\\d+\\.\\d+.*)?").matches(versionNumber.toString())
+version = if (validVersion) versionNumber else defaultVersion
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8

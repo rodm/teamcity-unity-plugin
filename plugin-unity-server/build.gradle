@@ -22,7 +22,7 @@ teamcity {
     server {
         archiveName = rootProject.name
         descriptor = project.file('teamcity-plugin.xml')
-        tokens = [Plugin_Version: rootProject.version]
+        tokens = [Plugin_Version: project.version]
     }
 }
 
@@ -34,5 +34,5 @@ dependencies {
         exclude group: 'com.ibm.icu'
     }
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    provided "org.jetbrains.teamcity.internal:server:$teamcityVersion"
+    provided "org.jetbrains.teamcity.internal:server:${teamcity.version}"
 }

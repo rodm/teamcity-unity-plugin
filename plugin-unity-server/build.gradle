@@ -34,5 +34,5 @@ dependencies {
         exclude group: 'com.ibm.icu'
     }
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    provided "org.jetbrains.teamcity.internal:server:${teamcity.version}"
+    provided "org.jetbrains.teamcity.internal:server:${property('teamcityVersion')}"
 }

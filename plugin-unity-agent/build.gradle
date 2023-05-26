@@ -39,7 +39,7 @@ dependencies {
     implementation 'com.vdurmont:semver4j:3.1.0'
     implementation "commons-configuration:commons-configuration:1.10"
     implementation 'commons-io:commons-io:2.11.0'
-    provided "org.jetbrains.teamcity.internal:agent:${teamcity.version}"
+    provided "org.jetbrains.teamcity.internal:agent:${property('teamcityVersion')}"
     testImplementation 'org.testng:testng:6.8'
     testImplementation 'org.jmock:jmock:2.12.0'
 }
